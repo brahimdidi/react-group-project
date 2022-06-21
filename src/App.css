@@ -1,0 +1,16 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header-logo-and-name {
+  display: flex;
+  align-items: center;
+}
+
+.header-logo {
+  width: 64px;
+}
