@@ -9,6 +9,7 @@ const rocketsSlice = createSlice({
   initialState: {
     list: [],
     status: null,
+    reserved: true,
   },
   extraReducers: {
     [fetchRockets.pending]: (state) => {
@@ -26,4 +27,5 @@ const rocketsSlice = createSlice({
 });
 export const selectRockets = (state) => state.rockets.list;
 export const selectStatus = (state) => state.rockets.status;
+export const selectReserved = (state) => state.rockets.reserved;
 export default rocketsSlice.reducer;
