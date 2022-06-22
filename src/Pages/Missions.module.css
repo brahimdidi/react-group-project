@@ -1,5 +1,5 @@
 table {
-    margin: 1rem auto;
+    margin: 2rem auto;
     border-collapse: collapse;
 }
 
@@ -8,7 +8,17 @@ tr:nth-child(odd) {
 }
 
 td {
-    border: 1px solid black;
-    max-width: 30rem;
-    padding: 0.5rem
+    border: 1px solid #ececec;
+    max-width: 35rem;
+    padding: 0.6rem
+}
+
+thead td {
+    background-color: #fff;
+}
+
+thead td,
+.mission_name {
+    font-weight: bold;
+    text-align: left;
 }
