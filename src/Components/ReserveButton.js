@@ -5,8 +5,7 @@ import { reserveRocket, selectState } from '../app/features/rocketsReducer';
 const ReserveButton = (props) => {
   const currentState = useSelector(selectState);
   const dispatch = useDispatch();
-  const { reservedValue, btnText } = props;
-
+  const { reservedValue, btnText, rocketId } = props;
   const reservedStyle = {
     background: 'hsl(0deg 0% 100%)',
     color: 'hsl(204deg 6% 65%)',
@@ -24,7 +23,8 @@ const ReserveButton = (props) => {
 
   return (
     <button
-      onClick={() => dispatch(reserveRocket(currentState))}
+      type="button"
+      onClick={() => dispatch(reserveRocket({ list: currentState.list, id: rocketId }))}
       style={btnSetStyle(reservedValue)}
     >
       {btnText(reservedValue)}
