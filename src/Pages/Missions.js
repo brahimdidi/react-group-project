@@ -33,15 +33,37 @@ const Missions = () => {
             <tr key={missions.id}>
               <td className={styles.mission_name}>{missions.mission_name}</td>
               <td>{missions.description}</td>
-              <td>NOT A MEMBER</td>
               <td>
-                <button
-                  type="button"
-                  className="nonReservedStyle"
-                  onClick={() => clickHandler(missions.id)}
-                >
-                  Join Mission
-                </button>
+                {missions.joined && (
+                <span className="joinSpanStyle">
+                  Active Member
+                </span>
+                )}
+                {!missions.joined && (
+                <span className="nonjoinSpanStyle">
+                  NOT A MEMBER
+                </span>
+                )}
+              </td>
+              <td>
+                {missions.joined && (
+                  <button
+                    type="button"
+                    className="joinStyle"
+                    onClick={() => clickHandler(missions.id)}
+                  >
+                    Leave Mission
+                  </button>
+                )}
+                {!missions.joined && (
+                  <button
+                    type="button"
+                    className="nonjoinStyle"
+                    onClick={() => clickHandler(missions.id)}
+                  >
+                    Join Mission
+                  </button>
+                )}
               </td>
             </tr>
           ))}
