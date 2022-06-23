@@ -39,7 +39,7 @@ const MyProfile = () => {
           </ul>
         </div>
         <div className={styles.myProfileItem}>
-          <h1 className={styles.myItemName}>My Rockets</h1>
+          <h1>My Rockets</h1>
           <ul className={styles.myProfileItemList}>
             {reservedRockets.length ? ((reservedRockets.map((rocket) => (itemJsx(rocket))))) : profileEmpty('Rockets reserved') }
           </ul>
