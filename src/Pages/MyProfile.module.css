@@ -5,18 +5,21 @@
   margin: 0 auto;
   margin-top: 20px;
   display: grid;
-  grid-template-columns: repeat(2,1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 30px;
 }
-.myProfileItem{
- background: white;
+
+.myProfileItem {
+  background: white;
 }
+
 .myProfileItemList {
   width: 100%;
   margin-top: 14px;
   border: 2px solid #e6e6e6;
   border-radius: 10px;
 }
+
 .myItem {
   border-bottom: 2px solid #e6e6e6;
   text-align: left;
@@ -25,21 +28,24 @@
   font-size: 20px;
   align-items: center;
 }
+
 .myItem button {
   border: none;
   color: whitesmoke;
   font-size: 20px;
   background: rgb(234, 59, 59);
-  border-radius: 10px ;
+  border-radius: 10px;
   height: 100%;
   padding: 10px;
 }
+
 .myItemName {
   font-size: 20px;
   padding-left: 10px;
   font-weight: normal;
   text-transform: capitalize;
 }
+
 .noItems {
   color: red;
   font-size: 2rem;
