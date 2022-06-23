@@ -1,37 +1,22 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import Header from '../Components/Header';
-import ReserveButton from '../Components/ReserveButton';
-import { fetchRockets, selectRockets } from '../app/features/rocketsReducer';
+import { fetchRockets, selectRockets, reserveRocket } from '../app/features/rocketsReducer';
 
 const Rockets = () => {
-  // define state keys
+  // Grab the rocket array from the state
   const rocketsList = useSelector(selectRockets);
-  // function to toggle reserve button text
-  const notreserved = 'reserve';
-  const reserved = 'cancel reservation';
-  const btnText = (e) => (e === 'true' ? reserved : notreserved);
+  // function to toggle the ReserveButton textContent
   // dispatch the fetch action only once
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchRockets());
+    if (!rocketsList.length)dispatch(fetchRockets());
   }, [dispatch]);
-  // define styles for reserved span
-  const reservedSpanStyle = {
-    display: 'inline',
-    background: '#2eabbf',
-    color: 'white',
-    width: '35px',
-    height: '12px',
-    fontSize: '12px',
-    borderRadius: '5px',
-    padding: '2px',
+
+  const clickHandler = (id) => {
+    dispatch(reserveRocket(id));
   };
-  const nonReservedSpanStyle = {
-    display: 'none',
-  };
-  const spanSetStyle = (e) => (e === 'true' ? reservedSpanStyle : nonReservedSpanStyle);
-  // return the jsx
+  // Render the rockets in the UI
   return (
     <div>
       <Header />
@@ -42,17 +27,32 @@ const Rockets = () => {
             <div className="rocket-infos-div">
               <h1>{rocket.rocket_name}</h1>
               <p>
-                <span style={spanSetStyle(rocket.reserved)}>
+                {rocket.reserved && (
+                <span className="reservedSpanStyle">
                   Reserved
                 </span>
+                )}
                 {' '}
                 {rocket.description}
               </p>
-              <ReserveButton
-                reservedValue={rocket.reserved}
-                btnText={btnText}
-                rocketId={rocket.id}
-              />
+              {rocket.reserved && (
+              <button
+                type="button"
+                className="reservedStyle"
+                onClick={() => clickHandler(rocket.id)}
+              >
+                Cancel Reservation
+              </button>
+              )}
+              {!rocket.reserved && (
+              <button
+                type="button"
+                className="nonReservedStyle"
+                onClick={() => clickHandler(rocket.id)}
+              >
+                Reserve Rocket
+              </button>
+              )}
             </div>
           </li>
         ))}
