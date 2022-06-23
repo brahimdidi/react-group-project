@@ -18,39 +18,21 @@ export const fetchRockets = createAsyncThunk('rockets/getRockets',
 
 const rocketsSlice = createSlice({
   name: 'rockets',
-  initialState: {
-    list: [],
-
-  },
+  initialState: [],
   reducers: {
-    reserveRocket: (state, action) => {
-      const { list, id } = action.payload;
-      const setReserved = (e) => (e === 'true' ? 'false' : 'true');
-      const newList = list.map((el) => {
-        switch (el.id) {
-          case (id):
-            return { ...el, reserved: setReserved(el.reserved) };
-          default: return el;
-        }
-      });
-      state.list = newList;
-    },
+    reserveRocket: (state, action) => state.map((rocket) => {
+      if (rocket.id === action.payload) {
+        return { ...rocket, reserved: !rocket.reserved };
+      }
+      return rocket;
+    }),
   },
   extraReducers: {
-    [fetchRockets.pending]: (state) => {
-      state.status = 'loading';
-    },
-    [fetchRockets.fulfilled]: (state, { payload }) => {
-      state.list = payload;
-      state.status = 'success';
-    },
-    [fetchRockets.rejected]: (state) => {
-      state.status = 'failed';
-    },
+    [fetchRockets.fulfilled]: (state, action) => action.payload,
   },
 });
 
 export const { reserveRocket } = rocketsSlice.actions;
-export const selectRockets = (state) => state.rockets.list;
+export const selectRockets = (state) => state.rockets;
 export const selectState = (state) => state.rockets;
 export default rocketsSlice.reducer;
