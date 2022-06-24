@@ -10,7 +10,7 @@ export default function Header() {
   });
 
   return (
-    <header>
+    <header id="Header">
       <div className="header-logo-and-name">
         <img className="header-logo" src={logo} alt="planet logo" />
         <h1>Space Travelers&apos; Hub</h1>
