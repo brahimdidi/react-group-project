@@ -106,7 +106,8 @@ button {
   border: 1px solid gray;
 }
 
-.joinSpanStyle, .nonjoinSpanStyle {
+.joinSpanStyle,
+.nonjoinSpanStyle {
   color: #fff;
   text-align: center;
   font-size: 12px;
@@ -121,7 +122,6 @@ button {
 
 .nonjoinSpanStyle {
   background-color: gray;
-
 }
 
 /* // mobile version Styling  */
@@ -134,9 +134,11 @@ button {
     padding: 5px !important;
     gap: 10px;
   }
+
   h1 {
     font-size: 20px;
   }
+
   header nav {
     width: 100%;
     background: white;
@@ -145,61 +147,64 @@ button {
     padding: 10px;
     justify-content: space-between;
   }
+
   /* styling the rocket component */
   .rockets-container {
     width: 100%;
     margin-top: 10px;
     gap: 10px;
   }
+
   .rocket-card {
     gap: 5px;
     background: #ececec;
     height: auto;
   }
+
   .rocket-img {
     width: 30%;
-    height:70% ;
+    height: 70%;
   }
+
   .rocket-infos-div {
     gap: 1px;
   }
+
   /* styling the missions component */
-  table, thead, tbody, th, td, tr { 
-		display: block; 
-	}
-  thead tr { 
-		position: absolute;
-		top: -9999px;
-		left: -9999px;
-	}
-	
-	tr { border: 1px solid #ccc; }
-	
-	td { 
-		/* Behave  like a "row" */
-		border: none;
-		border-bottom: 1px solid #eee; 
-		position: relative;
-		padding-left: 50%; 
-	}
-	
-	td:before { 
-		/* Now like a table header */
-		position: absolute;
-		/* Top/left values mimic padding */
-		top: 6px;
-		left: 6px;
-		width: 45%; 
-		padding-right: 10px; 
-		white-space: nowrap;
-	}
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
 
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
 
-	
+  tr { border: 1px solid #ccc; }
+
+  td {
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  td::before {
+    /* Now like a table header */
+    position: absolute;
+
+    /* Top/left values mimic padding */
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
 }
-
-
-
-
-
-
