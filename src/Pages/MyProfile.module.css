@@ -51,7 +51,7 @@
   font-size: 2rem;
 }
 
-@media screen and (max-width:700px) {
+@media screen and (max-width: 700px) {
   .myProfileSection {
     width: 100%;
     display: flex;
@@ -60,6 +60,7 @@
     word-wrap: break-word;
     word-break: ;
   }
+
   .noItems {
     font-size: 1.5rem;
   }
