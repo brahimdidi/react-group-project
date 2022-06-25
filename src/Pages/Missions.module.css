@@ -10,7 +10,7 @@ tr:nth-child(odd) {
 td {
   border: 1px solid #ececec;
   max-width: 35rem;
-  padding: 0.6rem;
+  padding: 1rem;
 }
 
 thead td {
