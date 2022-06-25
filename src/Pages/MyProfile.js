@@ -39,7 +39,7 @@ const MyProfile = () => {
     </li>
   );
   return (
-    <div>
+    <>
       <Header />
       <section className={styles.myProfileSection}>
         <div className={styles.myProfileItem}>
@@ -55,7 +55,7 @@ const MyProfile = () => {
           </ul>
         </div>
       </section>
-    </div>
+    </>
   );
 };
 
