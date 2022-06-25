@@ -179,6 +179,7 @@ button {
   tr {
     display: block;
   }
+  tr { border: 1px solid #ccc; }
 
   thead tr {
     position: absolute;
@@ -186,7 +187,6 @@ button {
     left: -9999px;
   }
 
-  tr { border: 1px solid #ccc; }
 
   td {
     /* Behave  like a "row" */
