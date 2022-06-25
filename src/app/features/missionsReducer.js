@@ -9,7 +9,7 @@ export const fetchMissions = createAsyncThunk(
     const missions = await res.json();
     const missionsList = missions.map((mission) => ({
       id: mission.mission_id,
-      mission_name: mission.mission_name,
+      name: mission.mission_name,
       description: mission.description,
       joined: false,
     }));

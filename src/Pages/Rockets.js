@@ -25,7 +25,7 @@ const Rockets = () => {
           <li className="rocket-card" key={rocket.id} id={rocket.id}>
             <img className="rocket-img" src={rocket.img[1]} alt="rocket" />
             <div className="rocket-infos-div">
-              <h1>{rocket.rocket_name}</h1>
+              <h1>{rocket.name}</h1>
               <p>
                 {rocket.reserved && (
                 <span className="reservedSpanStyle">

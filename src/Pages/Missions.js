@@ -31,7 +31,7 @@ const Missions = () => {
         <tbody>
           {missions.map((missions) => (
             <tr key={missions.id}>
-              <td className={styles.mission_name}>{missions.mission_name}</td>
+              <td className={styles.mission_name}>{missions.name}</td>
               <td>{missions.description}</td>
               <td>
                 {missions.joined && (

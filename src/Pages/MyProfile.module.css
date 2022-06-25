@@ -1,25 +1,66 @@
 .myProfileSection {
+  width: 80%;
+  height: auto;
+  max-height: 400px;
+  margin: 0 auto;
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.myProfileItem {
+  background: white;
+}
+
+.myProfileItemList {
+  width: 100%;
+  margin-top: 14px;
+  border: 2px solid #e6e6e6;
+  border-radius: 10px;
+}
+
+.myItem {
+  border-bottom: 2px solid #e6e6e6;
+  text-align: left;
   display: flex;
-  margin: 1rem 10rem;
-  gap: 2rem;
-  justify-content: space-around;
+  justify-content: space-between;
+  font-size: 20px;
+  align-items: center;
 }
 
-.myProfileMissionsList,
-.myProfileRocketsList {
-  flex-grow: 1;
-  padding: 0.5rem;
+.myItem button {
+  border: none;
+  color: whitesmoke;
+  font-size: 20px;
+  background: rgb(234, 59, 59);
+  border-radius: 10px;
+  height: 100%;
+  padding: 10px;
 }
 
-.myProfileMissionsList h1,
-.myProfileRocketsList h1 {
-  text-align: center;
+.myItemName {
+  font-size: 20px;
+  padding-left: 10px;
+  font-weight: normal;
+  text-transform: capitalize;
 }
 
-.myProfileMissionsList li,
-.myProfileRocketsList li {
-  border: 1px solid #ececec;
-  border-collapse: collapse;
-  padding: 0.75rem;
-  margin: 0.25rem auto;
+.noItems {
+  color: red;
+  font-size: 2rem;
+}
+
+@media screen and (max-width: 700px) {
+  .myProfileSection {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    word-wrap: break-word;
+  }
+
+  .noItems {
+    font-size: 1.5rem;
+  }
 }
