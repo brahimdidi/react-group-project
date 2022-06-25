@@ -1,15 +1,20 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Header from '../Components/Header';
-import { fetchMissions } from '../app/features/missionsReducer';
+import { fetchMissions, selectMissions, joinMission } from '../app/features/missionsReducer';
 import styles from './Missions.module.css';
 
 const Missions = () => {
   const dispatch = useDispatch();
-  const missions = useSelector((state) => state.missions);
+  const missions = useSelector(selectMissions);
+
   useEffect(() => {
-    dispatch(fetchMissions());
+    if (!missions.length) dispatch(fetchMissions());
   }, [dispatch]);
+
+  const clickHandler = (id) => {
+    dispatch(joinMission(id));
+  };
 
   return (
     <>
@@ -26,10 +31,40 @@ const Missions = () => {
         <tbody>
           {missions.map((missions) => (
             <tr key={missions.id}>
-              <td className={styles.mission_name}>{missions.mission_name}</td>
+              <td className={styles.mission_name}>{missions.name}</td>
               <td>{missions.description}</td>
-              <td>NOT A MEMBER</td>
-              <td><button type="button">Join Mission</button></td>
+              <td>
+                {missions.joined && (
+                <span className="joinSpanStyle">
+                  Active Member
+                </span>
+                )}
+                {!missions.joined && (
+                <span className="nonjoinSpanStyle">
+                  NOT A MEMBER
+                </span>
+                )}
+              </td>
+              <td>
+                {missions.joined && (
+                  <button
+                    type="button"
+                    className="joinStyle"
+                    onClick={() => clickHandler(missions.id)}
+                  >
+                    Leave Mission
+                  </button>
+                )}
+                {!missions.joined && (
+                  <button
+                    type="button"
+                    className="nonjoinStyle"
+                    onClick={() => clickHandler(missions.id)}
+                  >
+                    Join Mission
+                  </button>
+                )}
+              </td>
             </tr>
           ))}
         </tbody>
