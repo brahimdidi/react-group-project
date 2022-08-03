@@ -17,7 +17,7 @@ About
 
 ## Live Demo
 
-- [live](coming soon)
+- [live](https://spacedd.netlify.app/)
 
 ## Getting Started
 
